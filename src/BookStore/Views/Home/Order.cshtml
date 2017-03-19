@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Order";
+}
+<h1>Order</h1>
+<form asp-controller="Order" asp-action="placeOrder">
+    <fieldset>
+        <h2>Billing Information</h2>
+        <div>Full Name:</div>
+        <input name="cardholderName" />
+        <div>Credit Card Number</div>
+        <input name="creditCardNumber" />
+        <div>Expiry Date</div>
+        <input name="expiryDate" type="month" />
+        <div>Security Code</div>
+        <input name="securityCode" />
+
+        <h2>Shipping Information</h2>
+        <div>Full Name:</div>
+        <input name="name" />
+        <div>Address</div>
+        <input name="address" />
+        <div>City</div>
+        <input name="city" />
+        <div>State</div>
+        <input name="state" />
+        <div>Zip Code</div>
+        <input name="zipCode" />
+        <div></div>
+        <button type="submit">Place Order</button>
+    </fieldset>
+    <div></div>
+    <div>@ViewBag.Info</div>
+</form>

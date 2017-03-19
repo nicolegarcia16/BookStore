@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using BookStore.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore
 {
@@ -37,6 +40,8 @@ namespace BookStore
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
+            //services.AddEntityFramework().AddSqlServer().AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]))
+            services.AddDbContext<BooksContext>(options => options.UseSqlServer(Configuration["BooksContext"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
